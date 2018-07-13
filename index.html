@@ -2,31 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>App Time</title>
+    <style>
+        button {
+            background: red;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Just an app</h1>
+        <h1>
+            Just An App
+        </h1>
     <main>
-        <p><label>
-                <input name="power" type="radio"> Square
+        <p>
+            <label>
+                Number:
+            <input type="number" id="number">
+            </label>
+        </p>
+
+        <p>
+            <label>
+                <input name="power" type="radio" value="2"> Square
             </label>
             <label>
-                <input name="power" type="radio"> Cube
+                <input name="power" type="radio" value="3"> Cube
             </label>
             <label>
-                <input name="power" type="radio"> Quadratic
+                <input name="power" type="radio" value="4"> Power of 4
             </label>
         </p>
-        
+
         <p>
-            <textarea>Default Content</textarea>>
+            <button onclick="showNumber()">Click Me</button> 
         </p>
-        
-        <p>
-            <button>Click Me</button>
-        </p>
+
+        <p id="result"></p>
+
     </main>
+
+    <script>
+
+        function showNumber() {
+            var p = document.getElementById('result');
+            var input = document.getElementById('number');
+            var radio = document.querySelector('input[name=power]:checked');
+            var number = input.value;
+            var power = radio.value
+
+            if(isNaN(number)) {
+                alert('please input a number!');
+            }
+
+            else {
+                p.innerHTML = number + ' to the power of ' + power + ' is <strong>' + Math.pow(number, power) + '! </strong>';
+            }
+
+        }
+    </script>
 </body>
 </html>
