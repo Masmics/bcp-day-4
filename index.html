@@ -15,8 +15,8 @@
     <main>
         <p>
             <label>
-                Name:
-            <input id="name">
+                Number:
+            <input id="number">
             </label>
         </p>
         <p>
@@ -24,14 +24,14 @@
                 <input name="power" type="radio"> Square
             </label>
             <label>
-                <input name="power" type="radio"> Cube
+                <input name="powers" type="radio"> Cube
             </label>
             <label>
                 <input name="power" type="radio"> Quadratic
             </label>
         </p>
         <p>
-            <button onclick="showName()">Click Me</button> 
+            <button onclick="showNumber()">Click Me</button> 
         </p>
 
         <p id="result"></p>
@@ -40,23 +40,29 @@
 
     <script>
 
-        function showName() {
-            var input = document.getElementById('name');
-            var name = input.value;
+        function showNumber() {
+            var input = document.getElementById('number');
+            var number = input.value;
 
-            var p = document.getElementById('result');
-            p.innerText = 'Your name is ' + name;
 
-            if(name === 'chris') {
-                p.style.backgroundColor = 'steelblue';
+            if(isNaN(number)) {
+                alert('please input a number!');
             }
-        }
-        function count() {
-            for(var i = 0; i < 10; i++) {
-                console.log(i + 1);
+
+            else {
+                var radio = document.querySelector('input[name=power]:checked');
+                var p = document.getElementById('result');
+                p.innerHTML = 'Your number squared is <strong>' + Math.pow(number, 2) + '</strong>';
             }
+
+
         }
-        
+        //function count() {
+            //for(var i = 0; i < 10; i++) {
+                //console.log(i + 1);
+            //}
+        //}
+
     </script>
 </body>
 </html>
